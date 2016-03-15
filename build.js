@@ -46,16 +46,12 @@
 
 	'use strict';
 
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 	var Login = React.createClass({
 	    displayName: 'Login',
 
 	    render: function render() {
-	        var _userNameInputStyle;
-
 	        var loginStyle = {
-	            backgroundColor: '#423142',
+	            background: '#423142',
 	            position: 'absolute',
 	            width: '230px',
 	            height: '115px',
@@ -65,25 +61,89 @@
 	            borderRadius: '2px'
 	        };
 
-	        var userNameStyle = {
-	            marginBottom: '5px',
+	        var usernameStyle = {
+	            marginBottom: '10px',
 	            height: '35px',
 	            borderRadius: '2px'
 	        };
 
-	        var userNameInputStyle = (_userNameInputStyle = {
-	            height: '100%',
-	            color: '#9c9c9c',
-	            border: 'none'
-	        }, _defineProperty(_userNameInputStyle, 'height', '35px'), _defineProperty(_userNameInputStyle, 'WebkitAppearance', 'none'), _defineProperty(_userNameInputStyle, 'borderRadius', '0 2px 2px 0'), _defineProperty(_userNameInputStyle, 'outline', 'none'), _defineProperty(_userNameInputStyle, 'width', 'calc(100% - 45px)'), _userNameInputStyle);
+	        var iconStyle = {
+	            textAlign: 'center',
+	            position: 'relative',
+	            top: '50%',
+	            transform: 'translateY(-50%)'
+	        };
 
-	        var indicatorStyle = {
+	        var inputStyle = {
+	            color: '#9c9c9c',
+	            border: 'none',
+	            height: '35px',
+	            display: 'inline-block',
+	            padding: '0 0 0 7px',
+	            fontSize: '11px',
+	            WebkitAppearance: 'none',
+	            outline: 'none'
+	        };
+
+	        var submitButtonStyle = {
 	            display: 'inline-block',
 	            height: '35px',
 	            width: '35px',
-	            borderRadius: '2px 0 0 2px',
-	            background: 'red'
+	            cursor: 'pointer',
+	            color: '#FEFEFE',
+	            border: 'none',
+	            borderRadius: '0 2px 2px 0',
+	            background: '#AD6BAD'
 	        };
+
+	        var usernameInputStyle = Object.assign({}, inputStyle, {
+	            borderRadius: '0 2px 2px 0',
+	            width: 'calc(100% - 35px)'
+	        });
+
+	        var passwordInputStyle = Object.assign({}, inputStyle, {
+	            width: 'calc(100% - 70px)',
+	            verticalAlign: 'top'
+	        });
+
+	        var indicatorStyle = {
+	            display: 'inline-block',
+	            color: '#877787',
+	            verticalAlign: 'top',
+	            height: '35px',
+	            width: '35px',
+	            borderRight: '1px solid #DCDCDC',
+	            borderRadius: '2px 0 0 2px',
+	            background: '#DEDEDE'
+	        };
+
+	        var arrowStyle = {
+	            width: 0,
+	            height: 0,
+	            borderLeft: '7px solid transparent',
+	            borderRight: '7px solid transparent',
+	            borderTop: '7px solid ' + loginStyle.background,
+	            position: 'absolute',
+	            top: loginStyle.height,
+	            left: '17px'
+	        };
+
+	        var subtextStyle = {
+	            position: 'absolute',
+	            width: loginStyle.width,
+	            top: loginStyle.height,
+	            padding: '16px',
+	            color: '#594F5F'
+	        };
+
+	        var forgotStyle = {
+	            fontSize: '11px',
+	            textDecoration: 'underline',
+	            verticalAlign: 'baseline',
+	            float: 'right'
+	        };
+
+	        var passwordIndicatorStyle = Object.assign({}, indicatorStyle, {});
 
 	        return React.createElement(
 	            'div',
@@ -91,24 +151,48 @@
 	            React.createElement('div', { className: 'gradientScroll', style: { background: '#AABBCC', height: '3px' } }),
 	            React.createElement(
 	                'div',
-	                { className: 'signinContent', style: { height: '100%', padding: '20px' } },
+	                { className: 'signinContent', style: { height: '100%', padding: '16px' } },
 	                React.createElement(
 	                    'div',
-	                    { className: 'username', style: userNameStyle },
+	                    { className: 'username', style: usernameStyle },
 	                    React.createElement(
-	                        'span',
-	                        { ref: 'indicator', style: indicatorStyle },
-	                        'X'
+	                        'div',
+	                        { style: indicatorStyle },
+	                        React.createElement('div', { className: 'icon-user', style: iconStyle })
 	                    ),
-	                    React.createElement('input', { style: userNameInputStyle, placeholder: 'Username' })
+	                    React.createElement('input', { style: usernameInputStyle, placeholder: 'Username' })
 	                ),
 	                React.createElement(
 	                    'div',
 	                    { className: 'password', style: { borderRadius: '2px' } },
-	                    React.createElement('input', { placeholder: 'Password' }),
-	                    React.createElement('button', { style: { width: '50px' } })
+	                    React.createElement(
+	                        'div',
+	                        { style: passwordIndicatorStyle },
+	                        React.createElement('div', { className: 'icon-key', style: iconStyle })
+	                    ),
+	                    React.createElement('input', { style: passwordInputStyle, placeholder: 'Password' }),
+	                    React.createElement(
+	                        'div',
+	                        { style: submitButtonStyle },
+	                        React.createElement('div', { className: 'icon-arrow-right', style: iconStyle })
+	                    )
 	                )
-	            )
+	            ),
+	            React.createElement(
+	                'div',
+	                { style: subtextStyle },
+	                React.createElement(
+	                    'span',
+	                    { style: { fontSize: '16px' } },
+	                    'SIGN IN'
+	                ),
+	                React.createElement(
+	                    'a',
+	                    { style: forgotStyle },
+	                    'forgot?'
+	                )
+	            ),
+	            React.createElement('div', { style: arrowStyle })
 	        );
 	    }
 	});
