@@ -10,3 +10,120 @@ body {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
+.login {
+    background: #423142;
+    position: absolute;
+    width: 230px;
+    height: 115px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+}
+
+.login::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #423142;
+    position: absolute;
+    top: 115px;
+    left: 17px;
+}
+
+.subtext {
+    position: absolute;
+    width: 230px;
+    top: 115px;
+    padding: 16px;
+    color: #594F5F;
+}
+
+.subtext span {
+    font-size: 16px;
+}
+
+.subtext a {
+    font-size: 11px;
+    text-decoration: underline;
+    float: right;
+}
+
+.submitButton {
+    display: inline-block;
+    height: 35px;
+    width: 35px;
+    color: #FEFEFE;
+    border: none;
+    border-radius: 0 2px 2px 0;
+    background: #AD6BAD;
+}
+
+.username {
+    margin-bottom: 10px;
+    height: 35px;
+    border-radius: 2px;
+}
+
+.username input {
+    color: #9c9c9c;
+    border: none;
+    height: 35px;
+    display: inline-block;
+    padding: 0 0 0 7px;
+    font-size: 11px;
+    -webkit-appearance: none;
+    outline: none;
+    border-radius: 0 2px 2px 0;
+    width: calc(100% - 35px);
+}
+.password input {
+    color: #9c9c9c;
+    border: none;
+    height: 35px;
+    display: inline-block;
+    padding: 0 0 0 7px;
+    font-size: 11px;
+    -webkit-appearance: none;
+    outline: none;
+    width: calc(100% - 70px);
+    vertical-align: top;
+}
+
+.errorMessage {
+    display: inline-block;
+    background: #E62163;
+    width: 55px;
+    height: 35px;
+    position: absolute;
+    right: -50px;
+    padding: 8px 5px;
+    color: white;
+};
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+
+.gradientScroll {
+    background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff00ff);
+    background-position: 100%;
+    background-size: 200%;
+}
+
+.gradientScroll.animate {
+    animation: scroll 3s ease infinite;
+}
+
+@keyframes scroll {
+    0%{background-position: 100%}
+    50%{background-position: 0%}
+    100%{background-position: 100%}
+}
